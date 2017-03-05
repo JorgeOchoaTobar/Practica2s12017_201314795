@@ -202,7 +202,7 @@ public class ListaSimple extends javax.swing.JFrame {
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
 String palabra = this.jTextField3.getText().toString();
         RequestBody formBody = new FormEncodingBuilder()
-                .add("cadena",palabra)
+                .add("palabra",palabra)
                 .build();
         String busqueda = getString("buscarNodoLista", formBody); 
         System.out.println(busqueda);

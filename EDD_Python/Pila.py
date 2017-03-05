@@ -7,8 +7,8 @@ import NodoPila
 
 nodo = NodoPila
 
-class pila(object):                                                      #CLASE PILA
-   	def __init__(self):
+class Pila(object):                    #Clase Cola
+	def __init__(self):                #constructor
 		self.__primero = None
 		self.__ultimo = None
 		self.__tam = 0
@@ -27,8 +27,7 @@ class pila(object):                                                      #CLASE 
 		else:
 			nuevo.siguiente = self.__primero
 			self.__primero = nuevo
-	    self.__tam +=1
-
+	    
 	def RetirarNodo(self):                                              #RETIRANDO UN NODO DE LA PILA
 		if self.PilaVacia()==True:
 			print("Esta pila esta vacia")
@@ -41,8 +40,7 @@ class pila(object):                                                      #CLASE 
 			self.__primero = self.__primero.siguiente
 			temporal = None
 			print("El Elemento a sido Eliminado")
-		self.__tam -=1	
-
+		
 	def imprimirNodoPila(self):                                        #IMPRIMIR PILA
 		palabra = ""
 		if self.PilaVacia()==True:
@@ -61,12 +59,12 @@ class pila(object):                                                      #CLASE 
 
 	def graficarPila(self):                                            #GRAFICANDO PILA
 		temporal = self.__primero
-		file_path = "Grafos"
+		file_path = "Graficas"
 		try:
 			if not os.path.exists(file_path):
 				os.makedirs(file_path)
-			archivo = open("Grafos/pila.dot","w")
-			archivo.write("digraph pila{\n")
+			archivo = open("Graficas/Pila.dot","w")
+			archivo.write("digraph Pila{\n")
 			archivo.write("subgraph cluster_1{\n")
 			archivo.write("\t node[shape=box,color=yellow];\n")
 			while temporal!=None :
@@ -83,7 +81,7 @@ class pila(object):                                                      #CLASE 
 			archivo.write("\t}\n")
 			archivo.write("}")
 			archivo.close()
-			cmd = '"C:\\Program Files (x86)\\Graphviz2.38\\bin\\dot.exe" -Tjpg Grafos\\pila.dot -o Grafos\\pila.jpg'
+			cmd = '"C:\\Program Files (x86)\\Graphviz2.38\\bin\\dot.exe" -Tjpg Graficas\\Pila.dot -o Graficas\\Pila.jpg'
 			os.system(cmd)
 
 		except ValueError:

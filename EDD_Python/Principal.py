@@ -2,13 +2,13 @@
 #201314795
 
 import ListaSimple
-import Cola
 import Pila
+import Cola
 from flask import Flask, request
 
-listita = lista.ListaSimple()
-colita = cola.Cola()
-pilita = pila.Pila()
+listita = ListaSimple.ListaSimple()
+colita = Cola.Cola()
+pilita = Pila.Pila()
 app = Flask("EDD_Python")
 
 
@@ -29,8 +29,8 @@ def eliminarNodoLista():
 	listita.graficarLista()
 	return "Se elimino el indice <" + str(numero) +">"
 
-@app.route('/buscarL',methods=['POST'])
-def buscarL():
+@app.route('/buscarNodoLista',methods=['POST'])
+def buscarNodoLista():
 	palabra = str(request.form['palabra'])
 	auxiliar = listita.buscarNodoLista(str(palabra))
 	return str(auxiliar)
@@ -58,14 +58,14 @@ def ApilarNodo():
 	numero = str(request.form['numero'])
 	pilita.ApilarNodo(int(numero))
 	pilita.graficarPila()
-	palabra = str(opila.imprimirNodoPila())
+	palabra = str(pilita.imprimirNodoPila())
 	return palabra
 
 @app.route('/RetirarNodo',methods=['POST'])
 def RetirarNodo():
 	numero = str(request.form['numero'])
-	pilita.pop()
-	pilita.graficarP()
+	pilita.RetirarNodo()
+	pilita.graficarPila()
 	palabra = str(pilita.imprimirNodoPila())
 	return palabra
 

@@ -7,8 +7,7 @@ import NodoCola
 
 nodo = NodoCola
 
-#Clase Lista simple enlazada
-class cola(object):
+class Cola(object):                    #Clase Cola
 	def __init__(self):                #constructor
 		self.__primero = None
 		self.__ultimo = None
@@ -40,39 +39,39 @@ class cola(object):
 			valor = True
 			temporal = self.__primero
 			while(valor):
-				if temp.siguiente == self.__ultimo:
+				if temporal.siguiente == self.__ultimo:
 					temporal2 = self.__ultimo
 					self.__ultimo = temporal
 					temporal2 = None
-					valalor = False
-					print("l Elemento se a Eliminado")
+					valor = False
+					print("El Elemento se a Eliminado")
 				else:
 					temporal = temporal.siguiente
 
-	def imprimirNodoCola(self):        #imprimimos el nodo de la cola
+	def imprimirNodoCola(self):                                        #IMPRIMIR PILA
 		palabra = ""
 		if self.ColaVacia()==True:
-			return("lista vacia")
+			return("Esta lista esta vacia")
 		else:
 			valor = True
 			temporal = self.__primero
 			while(valor):
-				palabra = palabra +"->"+ str(temporal.obtenerNumero())
+				palabra = palabra+"--->"+ str(temporal.obtenerNumero())
 				print(temporal.obtenerNumero())
 				if temporal == self.__ultimo:
-					ValueError = False
+					valor = False
 				else:
 					temporal = temporal.siguiente
 		return palabra
 
-	def graficarCola(self):                     #graficando cola
+	def graficarCola(self):                                            #GRAFICANDO PILA
 		temporal = self.__primero
-		file_path = "Grafos"
+		file_path = "Graficas"
 		try:
 			if not os.path.exists(file_path):
 				os.makedirs(file_path)
-			archivo = open("Grafos/pila.dot","w")
-			archivo.write("digraph pila{\n")
+			archivo = open("Graficas/Cola.dot","w")
+			archivo.write("digraph Cola{\n")
 			archivo.write("subgraph cluster_1{\n")
 			archivo.write("\t node[shape=box,color=yellow];\n")
 			while temporal!=None :
@@ -84,12 +83,12 @@ class cola(object):
 				else:
 					archivo.write("; \n")
 					temporal = None
-			archivo.write("\tlabel = \" Pila \" ;\n")
+			archivo.write("\tlabel = \" Cola \" ;\n")
 			archivo.write("\tcolor=yellow")
 			archivo.write("\t}\n")
 			archivo.write("}")
 			archivo.close()
-			cmd = '"C:\\Program Files (x86)\\Graphviz2.38\\bin\\dot.exe" -Tjpg Grafos\\Cola.dot -o Grafos\\Cola.jpg'
+			cmd = '"C:\\Program Files (x86)\\Graphviz2.38\\bin\\dot.exe" -Tjpg Graficas\\Cola.dot -o Graficas\\Cola.jpg'
 			os.system(cmd)
 
 		except ValueError:

@@ -89,13 +89,13 @@ class ListaSimple(object):                       #Lista Simplemente enlazada
 				else:
 					temporal = temporal.siguiente
 
-	def graficarLista(self):                         #GRAFICANDO LISTA SIMPLE
+	def graficarLista(self):
 		temporal = self.__primero
-		file_path = "Grafos"
+		file_path = "Graficas"
 		try:
 			if not os.path.exists(file_path):
 				os.makedirs(file_path)
-			archivo = open("Grafos/listasimple.dot","w")
+			archivo = open("Graficas/ListaSimple.dot","w")
 			archivo.write("digraph Lista_simple{\n")
 			archivo.write("subgraph cluster_1{\n")
 			archivo.write("\t node[shape=box,color=yellow];\n")
@@ -109,12 +109,13 @@ class ListaSimple(object):                       #Lista Simplemente enlazada
 					archivo.write("; \n")
 					temporal = None
 			archivo.write("\t label = \" Lista Simple \" ;\n")
-			archivo.write("\t color=yellow")
+			archivo.write("\t color=blue")
 			archivo.write("\t}\n")
 			archivo.write("}")
 			archivo.close()
-			cmd = '"C:\\Program Files (x86)\\Graphviz2.38\\bin\\dot.exe" -Tjpg Grafos\\ListaSimple.dot -o Grafos\\ListaSimple.jpg'
+			cmd = '"C:\\Program Files (x86)\\Graphviz2.38\\bin\\dot.exe" -Tjpg Graficas\\ListaSimple.dot -o Graficas\\ListaSimple.jpg'
 			os.system(cmd)
 
 		except ValueError:
 			print("Error!")
+

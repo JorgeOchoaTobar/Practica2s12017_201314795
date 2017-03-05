@@ -1,0 +1,6 @@
+digraph Pila{
+subgraph cluster_1{
+	 node[shape=box,color=yellow];
+	label = " Pila " ;
+	color=yellow	}
+}

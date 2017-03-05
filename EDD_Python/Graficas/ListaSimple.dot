@@ -1,0 +1,9 @@
+digraph Lista_simple{
+subgraph cluster_1{
+	 node[shape=box,color=yellow];
+	Billy->Ochoa
+	Ochoa->Tobar
+	Tobar; 
+	 label = " Lista Simple " ;
+	 color=blue	}
+}
