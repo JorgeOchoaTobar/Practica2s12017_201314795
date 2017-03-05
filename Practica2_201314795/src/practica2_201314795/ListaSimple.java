@@ -182,7 +182,7 @@ public class ListaSimple extends javax.swing.JFrame {
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
       String palabra = this.jTextField1.getText().toString();
         RequestBody formBody = new FormEncodingBuilder()
-                .add("cadena",palabra)
+                .add("palabra",palabra)
                 .build();
         String agregado = getString("insertarNodoLista", formBody); 
         System.out.println(agregado);
